@@ -34,6 +34,7 @@ Overrides with cli:
 ```
 > helm install --name green \
   --set nameOverride=green \
+  --set replicaCount=3 \
   --set ingress.hosts[0].host=green \
   --set ingress.hosts[0].domain=example.com \
   --set ingress.hosts[0].paths[0]=/ \
