@@ -21,9 +21,10 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
+
   rules:
   {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+    - host: "{{ $.Release.Name }}.{{ .domain }}"
       http:
         paths:
         {{- range .paths }}

@@ -3,11 +3,11 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-02-20T14:26:41.979915+02:00"
+    created: "2020-02-21T11:44:21.085781+02:00"
     description: A Helm chart for Kubernetes
-    digest: b6ffa15dbfb1b380c8c0993018d953337b125d5062c200e59a70df4ee494def7
+    digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
     urls:
     - https://raw.githubusercontent.com/ruanbekker/helm-charts/master/hostname-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-20T14:26:41.97882+02:00"
+generated: "2020-02-21T11:44:21.084936+02:00"

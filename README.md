@@ -19,27 +19,37 @@ Adding the repo and installing a chart:
 ```
 > helm repo add ruanbekker 'https://raw.githubusercontent.com/ruanbekker/helm-charts/master/'
 > helm repo update
-> helm install \
-  --set ingress.enabled=true \
-  --set ingress.annotations."kubernetes\.io/ingress\.class"=traefik \
-  --set nameOverride=test \
-  --set fullnameOverride=test \
-  --set ingress.hosts[0].host=test.localdns.xyz \
-  --set ingress.hosts[0].paths[0]=/ 
-  ruanbekker/hostname
+> helm install --name blue ruanbekker/hostname
 ```
 
 Test:
 
 ```
-> curl -i http://test.localdns.xyz
-HTTP/1.1 200 OK
-Content-Length: 32
-Content-Type: text/plain; charset=utf-8
-Date: Thu, 20 Feb 2020 12:46:12 GMT
-Vary: Accept-Encoding
+> curl -i http://blue.localdns.xyz
+Hostname: blue-hostname-cb596d4df-jh7xs
+```
 
-Hostname: test-75fd7b6786-2zl65
+Overrides with cli:
+
+```
+> helm install --name green \
+  --set nameOverride=green \
+  --set ingress.hosts[0].host=green \
+  --set ingress.hosts[0].domain=example.com \
+  --set ingress.hosts[0].paths[0]=/ \
+  ruanbekker/hostname
+
+> curl -H "Host: green.example.com" http://localhost
+Hostname: green-5879d88869-tbtf8
+```
+
+Overrides with file:
+
+```
+> helm install --name yellow --values ./hostname/example/localhost.yml ./hostname
+
+> curl -H "Host: yellow.example.com" http://localhost
+Hostname: yellow-85c9c65875-lc976
 ```
 
 ## Creating a Helm Chart:
