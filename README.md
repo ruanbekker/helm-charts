@@ -74,6 +74,64 @@ NAME               	CHART VERSION	APP VERSION	DESCRIPTION
 reponame/hostname	0.1.0        	1.0        	A Helm chart for Kubernetes
 ```
 
+## Custom Domains
+
+You can make use of GitHub's page hosting for custom domains, like this repository hosts `https://charts.ruan.dev` and you can do that by heading to settings, then pages:
+
+<img width="811" alt="image" src="https://user-images.githubusercontent.com/567298/195151030-f2f099e8-e733-4b37-ac12-7c1bf7661c9c.png">
+
+Enable pages and set the root to `/` (depends on your setup), and under custom domains you can set your domain, but before you do you need to setup a CNAME record to `<your-github-username>.github.io`.
+
+Then in my case we can use it as, the following, add the repo:
+
+```bash
+helm repo add ruanbekker https://charts.ruan.dev
+"ruanbekker" has been added to your repositories
+```
+
+Then search the repo for charts:
+
+```bash
+helm search repo ruanbekker
+NAME               	CHART VERSION	APP VERSION	DESCRIPTION
+ruanbekker/hostname	0.1.0        	1.0        	A Helm chart for Kubernetes
+```
+
+And we can show the chart values:
+
+```bash
+helm show values ruanbekker/hostname
+
+replicaCount: 1
+
+image:
+  repository: ruanbekker/hostname
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  hosts:
+    - host: {}
+      domain: "localdns.xyz"
+      paths: [/]
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+```
+
 ## Resources:
 
 - https://medium.com/containerum/how-to-make-and-share-your-own-helm-package-50ae40f6c221
