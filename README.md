@@ -93,8 +93,9 @@ Then search the repo for charts:
 
 ```bash
 helm search repo ruanbekker
-NAME               	CHART VERSION	APP VERSION	DESCRIPTION
-ruanbekker/hostname	0.1.0        	1.0        	A Helm chart for Kubernetes
+NAME               	  CHART VERSION	APP VERSION	DESCRIPTION
+ruanbekker/hostname	  0.1.0        	1.0        	A Helm chart for Kubernetes
+ruanbekker/wiremock   1.0.0         2.35.0      Wiremock for Kubernetes   
 ```
 
 And we can show the chart values:
