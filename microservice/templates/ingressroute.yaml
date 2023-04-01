@@ -1,0 +1,30 @@
+{{- if .Values.ingressroute.enabled -}}
+{{- $fullName := include "helm-chart.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+{{- $namespace := .Release.Namespace -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "helm-chart.labels" . | nindent 4 }}
+  {{- with .Values.ingressroute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  entryPoints:
+    - {{ .Values.ingressroute.entryPoint }}
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.ingressroute.host }}`)
+      services:
+        - kind: Service
+          name: {{ $fullName }}
+          namespace: {{ $namespace }}
+          port: {{ $svcPort }}
+  {{- if .Values.ingressroute.tls }}
+  tls:
+    secretName: {{ .Values.ingressroute.tls.secretName }}
+  {{- end }}
+{{- end }}
