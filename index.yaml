@@ -3,22 +3,31 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-11-18T00:23:12.084843+02:00"
+    created: "2023-10-05T10:30:00.840381271Z"
+    description: A Helm chart for Kubernetes
+    digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
+    name: hostname
+    urls:
+    - hostname-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-10-05T10:30:00.840118484Z"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
     urls:
-    - https://raw.githubusercontent.com/ruanbekker/helm-charts/master/hostname-0.1.0.tgz
+    - hostname-0.1.0.tgz
     version: 0.1.0
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2022-11-18T00:23:12.0853412+02:00"
+    created: "2023-10-05T10:30:00.840723731Z"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
     type: application
     urls:
-    - https://raw.githubusercontent.com/ruanbekker/helm-charts/master/wiremock-1.0.0.tgz
+    - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2022-11-18T00:23:12.0808408+02:00"
+generated: "2023-10-05T10:30:00.839714157Z"
