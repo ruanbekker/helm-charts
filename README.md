@@ -74,6 +74,15 @@ NAME               	CHART VERSION	APP VERSION	DESCRIPTION
 reponame/hostname	0.1.0        	1.0        	A Helm chart for Kubernetes
 ```
 
+### Making updates
+
+Bump the version of your chart, for example `hostname/Chart.yaml` then:
+
+```bash
+helm package ./hostname 
+helm repo index .
+```
+
 ## Custom Domains
 
 You can make use of GitHub's page hosting for custom domains, like this repository hosts `https://charts.ruan.dev` and you can do that by heading to settings, then pages:
