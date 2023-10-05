@@ -3,7 +3,16 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-05T10:30:00.840381271Z"
+    created: "2023-10-05T15:33:29.055010474Z"
+    description: A Helm chart for Kubernetes
+    digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
+    name: hostname
+    urls:
+    - hostname-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-10-05T15:33:29.054504612Z"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -12,7 +21,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-05T10:30:00.840118484Z"
+    created: "2023-10-05T15:33:29.053999884Z"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -22,7 +31,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2023-10-05T10:30:00.840723731Z"
+    created: "2023-10-05T15:33:29.055565528Z"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -30,4 +39,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-05T10:30:00.839714157Z"
+generated: "2023-10-05T15:33:29.053250368Z"
