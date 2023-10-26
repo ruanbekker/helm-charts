@@ -3,7 +3,7 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-05T15:33:29.055010474Z"
+    created: "2023-10-26T15:43:34.63516868Z"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -12,7 +12,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-05T15:33:29.054504612Z"
+    created: "2023-10-26T15:43:34.634892612Z"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -21,17 +21,39 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-05T15:33:29.053999884Z"
+    created: "2023-10-26T15:43:34.634618477Z"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
     urls:
     - hostname-0.1.0.tgz
     version: 0.1.0
+  microservice:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-10-26T15:43:34.647172927Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.1.6
+    - alias: mysql
+      condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.14.1
+    description: microservice chart
+    digest: fa76cc716cbcecfbb2320c0602a760ff17bf644d16169db1cb66d68af7657e3e
+    name: microservice
+    type: application
+    urls:
+    - microservice-2.0.0.tgz
+    version: 2.0.0
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2023-10-05T15:33:29.055565528Z"
+    created: "2023-10-26T15:43:34.647523846Z"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -39,4 +61,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-05T15:33:29.053250368Z"
+generated: "2023-10-26T15:43:34.634240382Z"

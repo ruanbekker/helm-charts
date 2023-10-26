@@ -88,3 +88,20 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Dependencies
+
+# redis: https://artifacthub.io/packages/helm/bitnami/redis
+redis:
+  enabled: false
+  fullnameOverride: redis
+  architecture: standalone
+  auth:
+    enabled: false
+
+# mysql: https://artifacthub.io/packages/helm/bitnami/mysql
+mysql:
+  enabled: false
+  fullnameOverride: mysql
+  auth:
+    rootPassword: "password"
