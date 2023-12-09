@@ -3,7 +3,7 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-26T15:43:34.63516868Z"
+    created: "2023-12-09T18:11:50.798899+02:00"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -12,7 +12,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-26T15:43:34.634892612Z"
+    created: "2023-12-09T18:11:50.798527+02:00"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -21,7 +21,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-10-26T15:43:34.634618477Z"
+    created: "2023-12-09T18:11:50.798227+02:00"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -31,7 +31,33 @@ entries:
   microservice:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-10-26T15:43:34.647172927Z"
+    created: "2023-12-09T18:11:50.817666+02:00"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.1.6
+    - alias: mysql
+      condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.14.1
+    - alias: kafka
+      condition: kafka.enabled
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.1
+    description: microservice chart
+    digest: 5137a32b387e42fcc368c86e2b00b52271f89bea82043a3f767c7df6fe0b8067
+    name: microservice
+    type: application
+    urls:
+    - microservice-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-09T18:11:50.806662+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -53,7 +79,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2023-10-26T15:43:34.647523846Z"
+    created: "2023-12-09T18:11:50.81803+02:00"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -61,4 +87,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-26T15:43:34.634240382Z"
+generated: "2023-12-09T18:11:50.79743+02:00"

@@ -79,7 +79,9 @@ reponame/hostname	0.1.0        	1.0        	A Helm chart for Kubernetes
 Bump the version of your chart, for example `hostname/Chart.yaml` then:
 
 ```bash
-helm package ./hostname 
+helm repo update
+helm dependency update hostname/
+helm package ./hostname
 helm repo index .
 ```
 

@@ -14,8 +14,13 @@ env:
     APP_TITLE: "Welcome"
 
 probes:
+  startup:
+    path: "/"
+    port: "http"
+    period_seconds: 10
+    failure_threshold: 30
   liveness:
-    path: "/health"
+    path: "/"
     port: "http"
     initial_delay_seconds: 15
     period_seconds: 20
@@ -105,3 +110,16 @@ mysql:
   fullnameOverride: mysql
   auth:
     rootPassword: "password"
+
+# kafka: https://artifacthub.io/packages/helm/bitnami/kafka
+kafka:
+  enabled: false
+  fullnameOverride: kafka
+  deleteTopicEnable: true
+  autoCreateTopicsEnable: true
+  persistence:
+    enabled: false
+  zookeeper:
+    persistence:
+      enabled: false
+
