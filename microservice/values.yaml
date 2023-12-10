@@ -9,26 +9,41 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+deploymentStrategy: "RollingUpdate"  # or "Recreate"
+
+
 env:
   vars:
     APP_TITLE: "Welcome"
 
 probes:
   startup:
+    type: "http" # or "exec"
     path: "/"
     port: "http"
     period_seconds: 10
     failure_threshold: 30
   liveness:
+    type: "http"
     path: "/"
     port: "http"
     initial_delay_seconds: 15
     period_seconds: 20
   readiness:
+    type: "http"
     path: "/health"
     port: "http"
     initial_delay_seconds: 5
     period_seconds: 10
+
+# probes:
+#   startup:
+#     type: "exec"
+#     exec:
+#       command:
+#         - "/bin/sh"
+#         - "-c"
+#         - "echo 'exec probe command'"
 
 serviceAccount:
   create: true
