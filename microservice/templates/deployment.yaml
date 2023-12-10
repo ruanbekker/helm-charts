@@ -56,7 +56,7 @@ spec:
             {{- else if eq .Values.probes.startup.type "exec" }}
             exec:
               command:
-                {{- toYaml .Values.probes.startup.exec | nindent 4 }}
+                {{- toYaml .Values.probes.startup.exec | nindent 16 }}
             {{- end }}
             failureThreshold: {{ .Values.probes.startup.failure_threshold }}
             periodSeconds: {{ .Values.probes.startup.period_seconds }}
@@ -68,7 +68,7 @@ spec:
             {{- else if eq .Values.probes.liveness.type "exec" }}
             exec:
               command:
-                {{- toYaml .Values.probes.liveness.exec | nindent 4 }}
+                {{- toYaml .Values.probes.liveness.exec | nindent 16 }}
             {{- end }}
             initialDelaySeconds: {{ .Values.probes.liveness.initial_delay_seconds }}
             periodSeconds: {{ .Values.probes.liveness.period_seconds }}
@@ -80,7 +80,7 @@ spec:
             {{- else if eq .Values.probes.readiness.type "exec" }}
             exec:
               command:
-                {{- toYaml .Values.probes.readiness.exec | nindent 4 }}
+                {{- toYaml .Values.probes.readiness.exec | nindent 16 }}
             {{- end }}
             initialDelaySeconds: {{ .Values.probes.readiness.initial_delay_seconds }}
             periodSeconds: {{ .Values.probes.readiness.period_seconds }}

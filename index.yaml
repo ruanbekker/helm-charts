@@ -3,7 +3,7 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-12-10T18:15:18.976865179Z"
+    created: "2023-12-10T21:13:13.635508948Z"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -12,7 +12,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-12-10T18:15:18.976292166Z"
+    created: "2023-12-10T21:13:13.63497626Z"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -21,7 +21,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-12-10T18:15:18.975767741Z"
+    created: "2023-12-10T21:13:13.634289271Z"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -31,7 +31,7 @@ entries:
   microservice:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-12-10T18:15:19.046617685Z"
+    created: "2023-12-10T21:13:13.749783998Z"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -49,7 +49,33 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 19.0.1
     description: microservice chart
-    digest: cb1fe1e1a056f5269f7b88771951b353a9b3abbcc4ad3183d7c4a626ad281850
+    digest: 5597b2cbabf749815c0567d700cd2de0c0280f9ffd7d209e1e76bd9aca701cab
+    name: microservice
+    type: application
+    urls:
+    - microservice-3.1.1.tgz
+    version: 3.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-10T21:13:13.716045019Z"
+    dependencies:
+    - alias: redis
+      condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.1.6
+    - alias: mysql
+      condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.14.1
+    - alias: kafka
+      condition: kafka.enabled
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.1
+    description: microservice chart
+    digest: abab26a2dbabe6d53ccd0852ceb934f3b6045d0687056aa801b969d0afef2ea4
     name: microservice
     type: application
     urls:
@@ -57,7 +83,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-12-10T18:15:19.019908445Z"
+    created: "2023-12-10T21:13:13.687408453Z"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -83,7 +109,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-12-10T18:15:18.993068772Z"
+    created: "2023-12-10T21:13:13.656663721Z"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -105,7 +131,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2023-12-10T18:15:19.047388252Z"
+    created: "2023-12-10T21:13:13.750475488Z"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -113,4 +139,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-10T18:15:18.975015117Z"
+generated: "2023-12-10T21:13:13.633502811Z"

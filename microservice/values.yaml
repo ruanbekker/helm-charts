@@ -11,7 +11,6 @@ fullnameOverride: ""
 
 deploymentStrategy: "RollingUpdate"  # or "Recreate"
 
-
 env:
   vars:
     APP_TITLE: "Welcome"
@@ -40,10 +39,9 @@ probes:
 #   startup:
 #     type: "exec"
 #     exec:
-#       command:
-#         - "/bin/sh"
-#         - "-c"
-#         - "echo 'exec probe command'"
+#       - "/bin/sh"
+#       - "-c"
+#       - "echo 'exec probe command'"
 
 serviceAccount:
   create: true

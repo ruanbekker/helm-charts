@@ -2,7 +2,7 @@ apiVersion: v2
 name: microservice
 description: microservice chart
 type: application
-version: 3.1.0
+version: 3.1.1
 appVersion: "1.0.0"
 
 dependencies:
