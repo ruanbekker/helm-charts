@@ -11,6 +11,15 @@ spec:
   selector:
     matchLabels:
       {{- include "helm-chart.selectorLabels" . | nindent 6 }}
+  strategy:
+    {{- if eq .Values.deploymentStrategy "RollingUpdate" }}
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+    {{- else if eq .Values.deploymentStrategy "Recreate" }}
+    type: Recreate
+    {{- end }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -40,21 +49,39 @@ spec:
               containerPort: {{ .Values.container.port }}
               protocol: TCP
           startupProbe:
+            {{- if eq .Values.probes.startup.type "http" }}
             httpGet:
               path: {{ .Values.probes.startup.path }}
               port: {{ .Values.probes.startup.port }}
+            {{- else if eq .Values.probes.startup.type "exec" }}
+            exec:
+              command:
+                {{- toYaml .Values.probes.startup.exec | nindent 4 }}
+            {{- end }}
             failureThreshold: {{ .Values.probes.startup.failure_threshold }}
             periodSeconds: {{ .Values.probes.startup.period_seconds }}
           livenessProbe:
+            {{- if eq .Values.probes.liveness.type "http" }}
             httpGet:
               path: {{ .Values.probes.liveness.path }}
               port: {{ .Values.probes.liveness.port }}
+            {{- else if eq .Values.probes.liveness.type "exec" }}
+            exec:
+              command:
+                {{- toYaml .Values.probes.liveness.exec | nindent 4 }}
+            {{- end }}
             initialDelaySeconds: {{ .Values.probes.liveness.initial_delay_seconds }}
             periodSeconds: {{ .Values.probes.liveness.period_seconds }}
           readinessProbe:
+            {{- if eq .Values.probes.readiness.type "http" }}
             httpGet:
               path: {{ .Values.probes.readiness.path }}
               port: {{ .Values.probes.readiness.port }}
+            {{- else if eq .Values.probes.readiness.type "exec" }}
+            exec:
+              command:
+                {{- toYaml .Values.probes.readiness.exec | nindent 4 }}
+            {{- end }}
             initialDelaySeconds: {{ .Values.probes.readiness.initial_delay_seconds }}
             periodSeconds: {{ .Values.probes.readiness.period_seconds }}
           resources:
