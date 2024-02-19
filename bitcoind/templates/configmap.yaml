@@ -24,3 +24,4 @@ data:
     printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
     disablewallet={{ .Values.configuration.disablewallet | default 1 }}
     prune={{ .Values.configuration.prune | default 0 }}
+    onlynet=ipv4
