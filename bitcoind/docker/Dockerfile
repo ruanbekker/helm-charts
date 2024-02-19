@@ -17,7 +17,7 @@ ARG UID=1000
 ARG GID=1000
 ARG USERNAME=bitcoin
 
-RUN apt update && apt install iproute2 sudo -y && \
+RUN apt update && apt install iproute2 sudo procps net-tools -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g $GID -o $USERNAME && \

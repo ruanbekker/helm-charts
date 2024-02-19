@@ -9,19 +9,27 @@ metadata:
     heritage: {{ .Release.Service }}
 data: 
   bitcoin.conf: |
-    {{ if ne .Values.configuration.network "mainnet" }}
-    {{ include "network" . }}=1
-    [{{ include "network" . }}]
-    {{ end }}
+    datadir=/bitcoin/data
+    printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
+    rpcallowip={{ .Values.configuration.rpcallowip | default "0.0.0.0" }}
+    prune={{ .Values.configuration.prune | default 0 }}
+    # Additional configurations
     zmqpubrawblock=tcp://0.0.0.0:28332
     zmqpubrawtx=tcp://0.0.0.0:28333
     txindex={{ .Values.configuration.txindex }}
     server={{ .Values.configuration.server }}
-    rpcbind=0.0.0.0 #this is restricted from within the cluster
-    rpcallowip={{ .Values.configuration.rpcallowip }} #this is restricted from within the cluster, but can be further restricted by the values.yaml
-    # Print to console (stdout) so that "docker logs bitcoind" prints useful
-    # information.
-    printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
+    # Print to console (stdout) so that "docker logs bitcoind" prints useful information.
     disablewallet={{ .Values.configuration.disablewallet | default 1 }}
-    prune={{ .Values.configuration.prune | default 0 }}
     onlynet=ipv4
+    {{- if eq .Values.configuration.network "testnet" }}
+    testnet=1
+    [test]
+    rpcbind={{ .Values.configuration.rpcbind | default "0.0.0.0" }}
+    rpcport={{ .Values.configuration.rpcport | default 8332 }}
+    port={{ .Values.configuration.port | default 8333 }}
+    {{- else if eq .Values.configuration.network "mainnet" }}
+    mainnet=1
+    rpcbind={{ .Values.configuration.rpcbind | default "0.0.0.0" }}
+    rpcport={{ .Values.configuration.rpcport | default 8332 }}
+    port={{ .Values.configuration.port | default 8333 }}
+    {{- end }}

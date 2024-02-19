@@ -1,15 +1,16 @@
 image:
   repository: ruanbekker/blockchain-btc
   tag: 22.0
-  digest: sha256:f40791d663e1470a1ab32320ad04201d60c279aef7d80a0ab5ee9a3f6d4966e0
+  digest: sha256:103b753af622878df0fd792aa284a6fccbb159cc4481c0108abe75d96b520198
   pullPolicy: IfNotPresent
 
 configuration:
-  rpcuser: "rpcuser" # optional: if not quoted it will be generated
+  rpcuser: "user" # optional: if not quoted it will be generated
   txindex: 1
   server: 1
-  network: mainnet # required: (mainnet, regtest, signet or testnet) default: mainnet
-  prune: 16000
+  network: testnet # required: (mainnet, regtest, signet or testnet) default: mainnet
+  prune: 0
+  disablewallet: 1
   passwordLength: 50 # this will be ignored if a passwordSecret is present
   rpcallowip: 0.0.0.0/0 
   # passwordSecret: "bitcoin-secrets" # use a existing secret and reference .password
