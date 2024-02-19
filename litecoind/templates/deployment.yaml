@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "litecoind.name" . }}
+  labels:
+    app: {{ template "litecoind.name" . }}
+    chart: {{ template "litecoind.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ include "litecoind.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "litecoind.name" . }}
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: {{ .Chart.Name }}
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  # Gracefully shutdown litecoind
+                  "/usr/local/bin/litecoin-cli", "-conf=/etc/litecoin.conf", "stop"
+                ]
+          {{ if ((.Values.image).digest) }}
+          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          {{ else }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          resources: 
+          {{ toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: CONFIGMAP_SUM
+              value: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+            - name: SECRET_SUM
+              value: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+            - name: CONF
+              value: "/etc/litecoin.conf"
+            - name: DATADIR
+              value: "/litecoin/data"
+            - name: RPCPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: rpcpassword
+                  name: {{ include "litecoind.name" . }}
+            - name: RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "litecoind.name" . }}
+          ports:
+            - name: rpc
+              containerPort: 8332
+            - name: p2p
+              containerPort: 8333
+            - name: zmq-block
+              containerPort: 28332
+            - name: zmq-tx
+              containerPort: 28333
+          volumeMounts:
+            - name: persistent-storage
+              mountPath: /litecoin/data
+            - name: {{ include "litecoind.name" . }}
+              mountPath: /etc/litecoin.conf
+              subPath: litecoin.conf
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: {{ include "litecoind.name" . }}
+      - name: {{ include "litecoind.name" . }}
+        configMap:
+          name: {{ include "litecoind.name" . }}
+          items:
+            - key: litecoin.conf
+              path: litecoin.conf

@@ -1,0 +1,28 @@
+image:
+  repository: ruanbekker/blockchain-ltc
+  tag: 0.21.2.2
+  digest: sha256:fa2c06ba07515ec18a157705f739df4b60fc887354b9f85c9f692cb634797408
+  pullPolicy: IfNotPresent
+
+configuration:
+  rpcuser: "user" # optional: if not quoted it will be generated
+  txindex: 1
+  server: 1
+  network: testnet # required: (mainnet, regtest, signet or testnet) default: mainnet
+  prune: 0
+  passwordLength: 50 # this will be ignored if a passwordSecret is present
+  rpcallowip: 0.0.0.0/0 
+  # passwordSecret: "litecoin-secrets" # use a existing secret and reference .password
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 20G
+  storageClass: gp2
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 1G
+  limits:
+    cpu: 1000m
+    memory: 1G

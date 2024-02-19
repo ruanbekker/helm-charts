@@ -1,0 +1,15 @@
+apiVersion: v1
+appVersion: 0.21.2.2
+description: Litecoind Helm Chart
+name: litecoind
+version: 1.2.0
+home: https://charts.ruan.dev/
+keywords:
+    - litecoin
+    - blockchain
+maintainers:
+    - name: Ruan Bekker
+      email: ruanbekker@users.noreply.github.com
+      url: https://charts.ruan.dev/
+sources:
+    - https://github.com/ruanbekker/helm-charts/
