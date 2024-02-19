@@ -1,0 +1,31 @@
+image:
+  repository: ruanbekker/blockchain-btc
+  tag: 22.0
+  digest: sha256:62be4f0e26c8df7d7a6640d757e37279f47d5639532e91dae45800e499e19354
+  pullPolicy: IfNotPresent
+
+# bitcoin.conf configuration file
+configuration:
+  rpcuser: # optional: if not quoted it will be generated
+  txindex: 0
+  server: 1
+  network: mainnet # required: (mainnet, regtest, signet or testnet) default: mainnet
+  prune: 12000
+  passwordLength: 50 # this will be ignored if a passwordSecret is present
+  rpcallowip: 0.0.0.0/0 
+  # passwordSecret: "bitcoin-secrets" # use a existing secret and reference .password
+
+# persistent volume settings
+persistence:
+  accessMode: ReadWriteOnce
+  size: 20G
+  storageClass: gp3
+
+# resources that the pod is allowed to consume
+resources:
+  requests:
+    cpu: 250m
+    memory: 1G
+  limits:
+    cpu: 250m
+    memory: 1G
