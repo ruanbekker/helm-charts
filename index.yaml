@@ -3,7 +3,17 @@ entries:
   bitcoind:
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-02-19T14:38:55.154102+02:00"
+    created: "2024-02-19T15:14:00.698263+02:00"
+    description: Bitcoind Helm Chart
+    digest: 28ed33c94b87ea19fbee6d790bebf14354d4977d88ac3f1f3649f24218c065c1
+    home: https://chrisrun.github.io/bitcoind-chart/
+    name: bitcoind
+    urls:
+    - bitcoind-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v1
+    appVersion: "22"
+    created: "2024-02-19T15:14:00.698063+02:00"
     description: Bitcoind Helm Chart
     digest: d1b10502dd2ef45123c37f2eb3c27c74ea0fe685f214a2fe1ed3983aff504f70
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -14,7 +24,7 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-19T14:38:55.155228+02:00"
+    created: "2024-02-19T15:14:00.699355+02:00"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -23,7 +33,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-19T14:38:55.154804+02:00"
+    created: "2024-02-19T15:14:00.698855+02:00"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -32,7 +42,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-19T14:38:55.15446+02:00"
+    created: "2024-02-19T15:14:00.69858+02:00"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -42,7 +52,7 @@ entries:
   microservice:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-19T14:38:55.195625+02:00"
+    created: "2024-02-19T15:14:00.737976+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -68,7 +78,7 @@ entries:
     version: 3.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-19T14:38:55.184206+02:00"
+    created: "2024-02-19T15:14:00.727678+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -94,7 +104,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-19T14:38:55.173148+02:00"
+    created: "2024-02-19T15:14:00.716576+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -120,7 +130,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-19T14:38:55.162822+02:00"
+    created: "2024-02-19T15:14:00.706412+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -142,7 +152,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2024-02-19T14:38:55.196031+02:00"
+    created: "2024-02-19T15:14:00.738279+02:00"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -150,4 +160,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2024-02-19T14:38:55.153617+02:00"
+generated: "2024-02-19T15:14:00.69748+02:00"
