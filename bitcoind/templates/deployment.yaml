@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "bitcoind.name" . }}
+  labels:
+    app: {{ template "bitcoind.name" . }}
+    chart: {{ template "bitcoind.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ include "bitcoind.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "bitcoind.name" . }}
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: {{ .Chart.Name }}
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  # Gracefully shutdown bitcoind
+                  "/usr/local/bin/bitcoin-cli", "-conf=/etc/bitcoin.conf", "stop"
+                ]
+          {{ if ((.Values.image).digest) }}
+          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          {{ else }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          resources: 
+          {{ toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: CONFIGMAP_SUM
+              value: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+            - name: SECRET_SUM
+              value: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+            - name: CONF
+              value: "/etc/bitcoin.conf"
+            - name: DATADIR
+              value: "/bitcoin/data"
+            - name: RPCPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: rpcpassword
+                  name: {{ include "bitcoind.name" . }}
+            - name: RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "bitcoind.name" . }}
+          ports:
+            - name: rpc
+              containerPort: 8332
+            - name: p2p
+              containerPort: 8333
+            - name: zmq-block
+              containerPort: 28332
+            - name: zmq-tx
+              containerPort: 28333
+          volumeMounts:
+            - name: persistent-storage
+              mountPath: /bitcoin/data
+            - name: {{ include "bitcoind.name" . }}
+              mountPath: /etc/bitcoin.conf
+              subPath: bitcoin.conf
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: {{ include "bitcoind.name" . }}
+      - name: {{ include "bitcoind.name" . }}
+        configMap:
+          name: {{ include "bitcoind.name" . }}
+          items:
+            - key: bitcoin.conf
+              path: bitcoin.conf
