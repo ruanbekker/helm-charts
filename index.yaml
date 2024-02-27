@@ -3,7 +3,7 @@ entries:
   bitcoind:
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-02-20T00:02:47.532841+02:00"
+    created: "2024-02-27T10:51:45.425548+02:00"
     description: Bitcoind Helm Chart
     digest: a4335045106b389dd8242a9a68c9736e3df10284f477625419b3cf1e1af3a9c8
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -13,7 +13,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-02-20T00:02:47.532609+02:00"
+    created: "2024-02-27T10:51:45.425254+02:00"
     description: Bitcoind Helm Chart
     digest: 73fb029b1df672d0a3b134913668a8d3f58ac512c5bccd6872c8a0a6269c20a3
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -23,7 +23,7 @@ entries:
     version: 1.0.2
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-02-20T00:02:47.532154+02:00"
+    created: "2024-02-27T10:51:45.424938+02:00"
     description: Bitcoind Helm Chart
     digest: 28ed33c94b87ea19fbee6d790bebf14354d4977d88ac3f1f3649f24218c065c1
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -33,7 +33,7 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-02-20T00:02:47.53014+02:00"
+    created: "2024-02-27T10:51:45.424527+02:00"
     description: Bitcoind Helm Chart
     digest: d1b10502dd2ef45123c37f2eb3c27c74ea0fe685f214a2fe1ed3983aff504f70
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -41,10 +41,30 @@ entries:
     urls:
     - bitcoind-1.0.0.tgz
     version: 1.0.0
+  dogecoind:
+  - apiVersion: v1
+    appVersion: 1.14.6
+    created: "2024-02-27T10:51:45.425858+02:00"
+    description: dogecoind Helm Chart
+    digest: a60585750044b66c4c411a529d193056bc180b81a76737733479e2899bb8e812
+    home: https://charts.ruan.dev/
+    keywords:
+    - dogecoin
+    - blockchain
+    maintainers:
+    - email: ruanbekker@users.noreply.github.com
+      name: Ruan Bekker
+      url: https://charts.ruan.dev/
+    name: dogecoind
+    sources:
+    - https://github.com/ruanbekker/helm-charts/
+    urls:
+    - dogecoind-1.3.0.tgz
+    version: 1.3.0
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-20T00:02:47.533946+02:00"
+    created: "2024-02-27T10:51:45.427237+02:00"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -53,7 +73,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-20T00:02:47.533498+02:00"
+    created: "2024-02-27T10:51:45.426428+02:00"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -62,7 +82,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-02-20T00:02:47.533209+02:00"
+    created: "2024-02-27T10:51:45.426143+02:00"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -72,7 +92,7 @@ entries:
   litecoind:
   - apiVersion: v1
     appVersion: 0.21.2.2
-    created: "2024-02-20T00:02:47.534295+02:00"
+    created: "2024-02-27T10:51:45.427575+02:00"
     description: Litecoind Helm Chart
     digest: 45592c701305093b24b4bcf971f95976f60afe93ccfae6cddbfa4a77f5e98dd1
     home: https://charts.ruan.dev/
@@ -92,7 +112,7 @@ entries:
   microservice:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-20T00:02:47.577208+02:00"
+    created: "2024-02-27T10:51:45.465719+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -118,7 +138,7 @@ entries:
     version: 3.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-20T00:02:47.566644+02:00"
+    created: "2024-02-27T10:51:45.455793+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -144,7 +164,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-20T00:02:47.555424+02:00"
+    created: "2024-02-27T10:51:45.444728+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -170,7 +190,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-02-20T00:02:47.54124+02:00"
+    created: "2024-02-27T10:51:45.435101+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -192,7 +212,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2024-02-20T00:02:47.577666+02:00"
+    created: "2024-02-27T10:51:45.466127+02:00"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -200,4 +220,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2024-02-20T00:02:47.529403+02:00"
+generated: "2024-02-27T10:51:45.423937+02:00"

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dogecoind.name" . }}
+  labels:
+    app: {{ template "dogecoind.name" . }}
+    chart: {{ template "dogecoind.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  ports:
+    - name: rpc
+      port: 8332
+      targetPort: rpc
+    - name: p2p
+      port: 8333
+      targetPort: p2p
+    - name: zmq-block
+      port: 28332
+      targetPort: zmq-block
+    - name: zmq-tx
+      port: 28333
+      targetPort: zmq-tx
+  selector:
+    app: {{ include "dogecoind.name" . }}
