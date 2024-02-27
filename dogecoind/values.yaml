@@ -4,8 +4,6 @@ image:
   digest: sha256:9478356503eb7b4a14b9136ae3a848debcc2c45a1c63f97e215a084ea0d6f770
   pullPolicy: IfNotPresent
 
-deploymentType: "deployment" # defaults to deployment. (deployment or statefulset).
-
 configuration:
   rpcuser: "user" # optional: if not quoted it will be generated
   txindex: 1 

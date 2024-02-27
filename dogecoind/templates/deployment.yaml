@@ -1,4 +1,3 @@
-{{- if eq .Values.deploymentType "deployment" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -84,4 +83,3 @@ spec:
           items:
             - key: dogecoin.conf
               path: dogecoin.conf
-{{- end }}
