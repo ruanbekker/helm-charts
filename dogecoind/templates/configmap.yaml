@@ -23,7 +23,6 @@ data:
     onlynet=ipv4
     {{- if eq .Values.configuration.network "testnet" }}
     testnet=1
-    [test]
     rpcbind={{ .Values.configuration.rpcbind | default "0.0.0.0" }}
     rpcport={{ .Values.configuration.rpcport | default 8332 }}
     port={{ .Values.configuration.port | default 8333 }}
