@@ -1,0 +1,87 @@
+{{- if eq .Values.deploymentType "deployment" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dogecoind.name" . }}
+  labels:
+    app: {{ template "dogecoind.name" . }}
+    chart: {{ template "dogecoind.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ include "dogecoind.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "dogecoind.name" . }}
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: {{ .Chart.Name }}
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  # Gracefully shutdown dogecoind
+                  "/usr/local/bin/dogecoin-cli", "-conf=/etc/dogecoin.conf", "stop"
+                ]
+          {{ if ((.Values.image).digest) }}
+          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          {{ else }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          resources: 
+          {{ toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: CONFIGMAP_SUM
+              value: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+            - name: SECRET_SUM
+              value: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+            - name: CONF
+              value: "/etc/dogecoin.conf"
+            - name: DATADIR
+              value: "/dogecoin/data"
+            - name: RPCPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: rpcpassword
+                  name: {{ include "dogecoind.name" . }}
+            - name: RPCUSER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "dogecoind.name" . }}
+          ports:
+            - name: rpc
+              containerPort: 8332
+            - name: p2p
+              containerPort: 8333
+            - name: zmq-block
+              containerPort: 28332
+            - name: zmq-tx
+              containerPort: 28333
+          volumeMounts:
+            - name: persistent-storage
+              mountPath: /dogecoin/data
+            - name: {{ include "dogecoind.name" . }}
+              mountPath: /etc/dogecoin.conf
+              subPath: dogecoin.conf
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: {{ include "dogecoind.name" . }}
+      - name: {{ include "dogecoind.name" . }}
+        configMap:
+          name: {{ include "dogecoind.name" . }}
+          items:
+            - key: dogecoin.conf
+              path: dogecoin.conf
+{{- end }}

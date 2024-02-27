@@ -1,0 +1,30 @@
+image:
+  repository: ruanbekker/blockchain-doge
+  tag: 1.14.6
+  digest: sha256:9478356503eb7b4a14b9136ae3a848debcc2c45a1c63f97e215a084ea0d6f770
+  pullPolicy: IfNotPresent
+
+deploymentType: "deployment" # defaults to deployment. (deployment or statefulset).
+
+configuration:
+  rpcuser: "user" # optional: if not quoted it will be generated
+  txindex: 1 
+  server: 1
+  network: testnet # required: (mainnet, regtest, signet or testnet) default: mainnet
+  prune: 0
+  passwordLength: 50 # this will be ignored if a passwordSecret is present
+  rpcallowip: 0.0.0.0/0 
+  # passwordSecret: "dogecoin-secrets" # use a existing secret and reference .password
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 20G
+  storageClass: gp2
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 1G
+  limits:
+    cpu: 1000m
+    memory: 1G
