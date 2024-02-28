@@ -83,3 +83,7 @@ spec:
           items:
             - key: bitcoin.conf
               path: bitcoin.conf
+      tolerations:
+        {{- toYaml .Values.tolerations | nindent 8 }}
+      affinity:
+        {{- toYaml .Values.affinity | nindent 8 }}
