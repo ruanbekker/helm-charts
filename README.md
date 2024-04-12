@@ -28,3 +28,9 @@ A list of the available charts in the repository:
 | `litecoind`    | Litecoin Node Helm Chart |
 | `microservice` | Microservices Helm Chart |
 | `wiremock`     | Wiremock Helm Chart      |
+
+## Changelog
+
+See [CHANGELOG](./CHANGELOG.md)
+
+
