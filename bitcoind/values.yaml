@@ -30,3 +30,5 @@ resources:
 
 affinity: {}
 tolerations: []
+podAnnotations: []
+

@@ -17,6 +17,10 @@ spec:
     metadata:
       labels:
         app: {{ include "dogecoind.name" . }}
+      {{- if .Values.podAnnotations }}
+      annotations:
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
+      {{- end }}
     spec:
       securityContext:
         runAsUser: 1000
