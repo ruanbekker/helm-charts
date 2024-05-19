@@ -25,6 +25,8 @@ A list of the available charts in the repository:
 | Chart          | Description              |
 | -------------- | ------------------------ |
 | `bitcoind`     | Bitcoin Node Helm Chart  |
+| `common`       | Common Helm Chart        |
+| `dogecoind`    | Dogecoin Node Helm Chart |
 | `litecoind`    | Litecoin Node Helm Chart |
 | `microservice` | Microservices Helm Chart |
 | `wiremock`     | Wiremock Helm Chart      |

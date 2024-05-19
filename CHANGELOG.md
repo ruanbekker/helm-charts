@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [1.5.0]() - Adds `podAnnotations`
 - Initial release
 
+### Common Chart
+
+- [1.0.0]() - Initial release.
+
 ### Litecoin Chart
 
 - [1.5.0]() - Adds `podAnnotations`
