@@ -39,6 +39,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+kind: "Deployment" # "StatefulSet"
 service:
   type: ClusterIP
   port: 80
@@ -79,7 +80,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # List of environment variables
-env: [] 
+env: []
 #  - name: MY_ENV_VAR
 #    value: "some-value"
 
@@ -101,6 +102,15 @@ volumeMounts: []
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
+
+# Adds a pvc and maps to deployment
+persistence:
+  enabled: false
+  storageClass: "local-path"
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  mountPath: /data
+  name: data
 
 nodeSelector: {}
 
