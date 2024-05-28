@@ -14,6 +14,27 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 1
+    maxSurge: 1
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 3
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  failureThreshold: 3
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -111,6 +132,15 @@ persistence:
   size: 1Gi
   mountPath: /data
   name: data
+
+# Enables prometheus servicemonitor
+monitoring:
+  enabled: false
+  labels:
+    release: kube-prometheus-stack
+  interval: 30s
+  scrapeTimeout: 10s
+  path: /metrics
 
 nodeSelector: {}
 
