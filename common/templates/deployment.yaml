@@ -9,6 +9,11 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  strategy:
+    type: {{ .Values.deploymentStrategy.type }}
+    rollingUpdate:
+      maxUnavailable: {{ .Values.deploymentStrategy.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.deploymentStrategy.rollingUpdate.maxSurge }}
   selector:
     matchLabels:
       {{- include "common.selectorLabels" . | nindent 6 }}
@@ -57,13 +62,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
@@ -108,6 +109,11 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  strategy:
+    type: {{ .Values.deploymentStrategy.type }}
+    rollingUpdate:
+      maxUnavailable: {{ .Values.deploymentStrategy.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.deploymentStrategy.rollingUpdate.maxSurge }}
   selector:
     matchLabels:
       {{- include "common.selectorLabels" . | nindent 6 }}
@@ -155,13 +161,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
