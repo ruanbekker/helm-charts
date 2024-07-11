@@ -11,8 +11,19 @@ configuration:
   network: testnet # required: (mainnet, regtest, signet or testnet) default: mainnet
   prune: 0
   passwordLength: 50 # this will be ignored if a passwordSecret is present
-  rpcallowip: 0.0.0.0/0 
-  # passwordSecret: "dogecoin-secrets" # use a existing secret and reference .password
+  # passwordSecret: "bitcoin-secrets" # use a existing secret and reference .password
+  rpcallowip:
+    - 0.0.0.0/0
+  rpcthreads: 16
+  rpcworkqueue: 256
+  rpcservertimeout: 60
+  loglevel: info
+  debug:
+    - rpc
+    - http
+  logips: 1
+  logsourcelocations: 1
+  logthreadnames: 1
 
 persistence:
   accessMode: ReadWriteOnce
