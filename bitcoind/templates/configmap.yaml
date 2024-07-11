@@ -11,7 +11,9 @@ data:
   bitcoin.conf: |
     datadir=/bitcoin/data
     printtoconsole={{ .Values.configuration.printtoconsole | default 1 }}
-    rpcallowip={{ .Values.configuration.rpcallowip | default "0.0.0.0" }}
+    {{- range .Values.configuration.rpcallowip }}
+    rpcallowip={{ . }}
+    {{- end }}
     prune={{ .Values.configuration.prune | default 0 }}
     # Additional configurations
     zmqpubrawblock=tcp://0.0.0.0:28332
@@ -21,6 +23,16 @@ data:
     # Print to console (stdout) so that "docker logs bitcoind" prints useful information.
     disablewallet={{ .Values.configuration.disablewallet | default 1 }}
     onlynet=ipv4
+    rpcthreads={{ .Values.configuration.rpcthreads | default 16 }}
+    rpcworkqueue={{ .Values.configuration.rpcworkqueue | default 256 }}
+    rpcservertimeout={{ .Values.configuration.rpcservertimeout | default 60 }}
+    loglevel={{ .Values.configuration.loglevel | default "info" }}
+    {{- range .Values.configuration.debug }}
+    debug={{ . }}
+    {{- end }}
+    logips={{ .Values.configuration.logips | default 0 }}
+    logsourcelocations={{ .Values.configuration.logsourcelocations | default 0 }}
+    logthreadnames={{ .Values.configuration.logthreadnames | default 0 }}
     {{- if eq .Values.configuration.network "testnet" }}
     testnet=1
     [test]
