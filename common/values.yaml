@@ -111,6 +111,13 @@ secrets: []
 #    secretName: my-secret
 #    key: secret-key
 
+# List of sealedsecrets to create
+sealedsecrets: {}
+#  scope: cluster-wide
+#  secrets:
+#    secret-one: your-sealed-secret-value-1
+#    secret-three: your-sealed-secret-value-1
+
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
