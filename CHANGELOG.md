@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Common Chart
 
+- [4.0.0]() - Adds pdb and topology key constraints.
 - [2.0.0]() - Adds pvc and statefulset support.
 - [1.0.0]() - Initial release.
 
