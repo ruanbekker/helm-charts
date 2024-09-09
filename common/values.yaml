@@ -149,6 +149,17 @@ monitoring:
   scrapeTimeout: 10s
   path: /metrics
 
+podDisruptionBudget:
+  enabled: false
+  minAvailable: 1
+
+topologySpreadConstraints:
+  enabled: false
+  constraints:
+    - maxSkew: 1
+      topologyKey: "kubernetes.io/zone"
+      whenUnsatisfiable: "ScheduleAnyway" # other values ( DoNotSchedule )
+
 nodeSelector: {}
 
 tolerations: []
