@@ -2,7 +2,7 @@ apiVersion: v1
 appVersion: 1.14.6
 description: dogecoind Helm Chart
 name: dogecoind
-version: 1.5.1
+version: 1.6.0
 home: https://charts.ruan.dev/
 keywords:
     - dogecoin

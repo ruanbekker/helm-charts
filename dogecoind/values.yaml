@@ -38,7 +38,12 @@ resources:
     cpu: 1000m
     memory: 1G
 
+ingress:
+  enabled: false
+  annotations: {}
+  ingressClassName: ""
+  hosts: []
+
 affinity: {}
 tolerations: []
 podAnnotations: []
-

@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Released]
 
+### Dogecoin Chart
+- [1.6.0]() - Adds `ingress` resource
+
 ### Bitcoin Chart
 
 - [1.5.0]() - Adds `podAnnotations`
