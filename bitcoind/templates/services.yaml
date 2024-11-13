@@ -21,5 +21,10 @@ spec:
     - name: zmq-tx
       port: 28333
       targetPort: zmq-tx
+    {{- if .Values.monitoring.enabled }}
+    - name: metrics
+      port: {{ .Values.monitoring.exporterPort }}
+      targetPort: {{ .Values.monitoring.exporterPort }}
+    {{- end }}
   selector:
     app: {{ include "bitcoind.name" . }}

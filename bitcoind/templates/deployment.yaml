@@ -77,6 +77,53 @@ spec:
             - name: {{ include "bitcoind.name" . }}
               mountPath: /etc/bitcoin.conf
               subPath: bitcoin.conf
+          {{- if .Values.monitoring.enabled }}
+          #livenessProbe:
+          #  httpGet:
+          #    path: {{ .Values.monitoring.healthEndpoint }}
+          #    port: {{ .Values.monitoring.exporterPort }}
+          #  initialDelaySeconds: 10
+          #  periodSeconds: 10
+          #readinessProbe:
+          #  httpGet:
+          #    path: {{ .Values.monitoring.healthEndpoint }}
+          #    port: {{ .Values.monitoring.exporterPort }}
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 10
+          {{- end }}
+
+        {{- if .Values.monitoring.enabled }}
+        - name: prometheus-exporter
+          image: {{ .Values.monitoring.exporterImage }}
+          env:
+            - name: RPC_PASS
+              valueFrom:
+                secretKeyRef:
+                  key: rpcpassword
+                  name: {{ include "bitcoind.name" . }}
+            - name: RPC_USER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "bitcoind.name" . }}
+            - name: RPC_URL
+              value: http://{{ include "bitcoind.name" . }}
+            - name: METRICS_PORT
+              value: {{ .Values.monitoring.metrics_port }}
+            - name: SERVER_TYPE
+              value: {{ .Values.monitoring.server_type }}
+          ports:
+            - containerPort: {{ .Values.monitoring.exporterPort }}
+              name: metrics
+        - name: health-poller
+          image: {{ .Values.monitoring.healthPollerImage }}
+          command: ["/bin/sh", "-c", "while true; do curl -s http://localhost:{{.Values.monitoring.exporterPort}}{{ .Values.monitoring.healthEndpoint }} > /dev/null; sleep {{ .Values.monitoring.healthPollInterval }}; done"]
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "20Mi"
+        {{- end }}
+
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:

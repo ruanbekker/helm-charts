@@ -10,7 +10,7 @@ kubectl create secret generic bitcoind-secrets \
   --namespace blockchain
 ```
 
-## Usage
+### Usage
 
 Option 1: Deploy in AWS environment, set the username and reference a existing secret as password
 
@@ -38,4 +38,8 @@ helm upgrade --install bitcoind ruanbekker/bitcoind \
   --namespace blockchain --create-namespace 
 ```
 
-The password will be in the container environment
+The password will be in the container environment.
+
+## Monitoring
+
+To deploy a prometheus exporter set the following `--set monitoring.enabled=true`. This will deploy a prometheus exporter as a container within the pod.
