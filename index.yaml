@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   bitcoind:
   - apiVersion: v1
+    appVersion: "28"
+    created: "2024-11-13T13:12:30.765105262+02:00"
+    description: Bitcoind Helm Chart
+    digest: 83a0dc5befcfd3c7f1c40eaa7d32585d4274d2357852529aa593ac72a683f219
+    home: https://chrisrun.github.io/bitcoind-chart/
+    name: bitcoind
+    urls:
+    - bitcoind-1.6.0.tgz
+    version: 1.6.0
+  - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.624865+02:00"
+    created: "2024-11-13T13:12:30.763698737+02:00"
     description: Bitcoind Helm Chart
     digest: 83a6865c4c1dcfd4ede25dd484a89bc438c6184e61dd2bd4f53db00872a720ed
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -13,7 +23,7 @@ entries:
     version: 1.5.1
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.624449+02:00"
+    created: "2024-11-13T13:12:30.762092603+02:00"
     description: Bitcoind Helm Chart
     digest: 6ebcf8aa7842bf2f0ac4eee5bcf655f25b33f8acd085339037d20829b4b6260b
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -23,7 +33,7 @@ entries:
     version: 1.5.0
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.62408+02:00"
+    created: "2024-11-13T13:12:30.760783279+02:00"
     description: Bitcoind Helm Chart
     digest: 66a32357d149531d6dad851172b9eabd86664785609708e1028eb4e0887679e6
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -33,7 +43,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.6237+02:00"
+    created: "2024-11-13T13:12:30.759537903+02:00"
     description: Bitcoind Helm Chart
     digest: a4335045106b389dd8242a9a68c9736e3df10284f477625419b3cf1e1af3a9c8
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -43,7 +53,7 @@ entries:
     version: 1.2.0
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.623272+02:00"
+    created: "2024-11-13T13:12:30.758166735+02:00"
     description: Bitcoind Helm Chart
     digest: 73fb029b1df672d0a3b134913668a8d3f58ac512c5bccd6872c8a0a6269c20a3
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -53,7 +63,7 @@ entries:
     version: 1.0.2
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.622757+02:00"
+    created: "2024-11-13T13:12:30.756766632+02:00"
     description: Bitcoind Helm Chart
     digest: 28ed33c94b87ea19fbee6d790bebf14354d4977d88ac3f1f3649f24218c065c1
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -63,7 +73,7 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: "22"
-    created: "2024-10-22T15:07:19.62222+02:00"
+    created: "2024-11-13T13:12:30.755289953+02:00"
     description: Bitcoind Helm Chart
     digest: d1b10502dd2ef45123c37f2eb3c27c74ea0fe685f214a2fe1ed3983aff504f70
     home: https://chrisrun.github.io/bitcoind-chart/
@@ -74,7 +84,7 @@ entries:
   common:
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2024-10-22T15:07:19.628095+02:00"
+    created: "2024-11-13T13:12:30.773934559+02:00"
     description: A Helm chart for Kubernetes
     digest: 701cebb39561fb20d8c84a1da5beae270993fe3d9e379149629f1ca1014a943c
     name: common
@@ -84,7 +94,7 @@ entries:
     version: 4.0.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2024-10-22T15:07:19.625842+02:00"
+    created: "2024-11-13T13:12:30.771516401+02:00"
     description: A Helm chart for Kubernetes
     digest: 8d41c47548f7b91b1784f0de8827b14ab1315db13afc7d4c21f021e08d4633ea
     name: common
@@ -94,7 +104,7 @@ entries:
     version: 2.0.0
   - apiVersion: v2
     appVersion: 0.2.1
-    created: "2024-10-22T15:07:19.62529+02:00"
+    created: "2024-11-13T13:12:30.76895962+02:00"
     description: A Helm chart for Kubernetes
     digest: fddad4d142996ca103b765e1d2cf60595af93624b225d864251f1e5df19f6f13
     name: common
@@ -105,7 +115,7 @@ entries:
   dogecoind:
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.630966+02:00"
+    created: "2024-11-13T13:12:30.784926774+02:00"
     description: dogecoind Helm Chart
     digest: 887cca08452f83f86e98269a180458af2688ebcc8ee7dad327b6b927333c9065
     home: https://charts.ruan.dev/
@@ -124,7 +134,7 @@ entries:
     version: 1.6.0
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.630641+02:00"
+    created: "2024-11-13T13:12:30.782914855+02:00"
     description: dogecoind Helm Chart
     digest: 0b1bad56eefba0a1f7650f0a8e189e97f062d857e54464fc91766be2e7865daf
     home: https://charts.ruan.dev/
@@ -143,7 +153,7 @@ entries:
     version: 1.5.1
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.630207+02:00"
+    created: "2024-11-13T13:12:30.781025751+02:00"
     description: dogecoind Helm Chart
     digest: cd2d0d6d8a1665a48ac5ddd899ec29df94f495430a457861deb0c5fe99ebc529
     home: https://charts.ruan.dev/
@@ -162,7 +172,7 @@ entries:
     version: 1.5.0
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.629891+02:00"
+    created: "2024-11-13T13:12:30.779432429+02:00"
     description: dogecoind Helm Chart
     digest: fbe3135e29c8fc4019b4d858bc46c83ebc5fcada20efc62cbdec24866abc30db
     home: https://charts.ruan.dev/
@@ -181,7 +191,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.629558+02:00"
+    created: "2024-11-13T13:12:30.778108844+02:00"
     description: dogecoind Helm Chart
     digest: cb52ab16732cf1e643cb50168de2af29cac716bc4d3f374b207c8b6df609d985
     home: https://charts.ruan.dev/
@@ -200,7 +210,7 @@ entries:
     version: 1.3.2
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.629023+02:00"
+    created: "2024-11-13T13:12:30.776884361+02:00"
     description: dogecoind Helm Chart
     digest: 85ad4b99b2248742ade14acbe7ed8d4dd6fadead11a0fb5e2c5cc88befaf67ac
     home: https://charts.ruan.dev/
@@ -219,7 +229,7 @@ entries:
     version: 1.3.1
   - apiVersion: v1
     appVersion: 1.14.6
-    created: "2024-10-22T15:07:19.628595+02:00"
+    created: "2024-11-13T13:12:30.775494896+02:00"
     description: dogecoind Helm Chart
     digest: a60585750044b66c4c411a529d193056bc180b81a76737733479e2899bb8e812
     home: https://charts.ruan.dev/
@@ -239,7 +249,7 @@ entries:
   hostname:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-10-22T15:07:19.631757+02:00"
+    created: "2024-11-13T13:12:30.789195027+02:00"
     description: A Helm chart for Kubernetes
     digest: 4aa11b433223e1eb9436657dca509eaebbf7941c035e8ad994f7a556c80f7444
     name: hostname
@@ -248,7 +258,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-10-22T15:07:19.631497+02:00"
+    created: "2024-11-13T13:12:30.788086223+02:00"
     description: A Helm chart for Kubernetes
     digest: 2db04536619923862a67f67bfc861781d2204bb2b5e8ccc9b4b17ce516d6bdd8
     name: hostname
@@ -257,7 +267,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-10-22T15:07:19.63122+02:00"
+    created: "2024-11-13T13:12:30.78650233+02:00"
     description: A Helm chart for Kubernetes
     digest: 9dd64f547d5684163a9ca368f5b8357e707db50550016cb949238cc9fa2a5c48
     name: hostname
@@ -267,7 +277,7 @@ entries:
   litecoind:
   - apiVersion: v1
     appVersion: 0.21.2.2
-    created: "2024-10-22T15:07:19.633099+02:00"
+    created: "2024-11-13T13:12:30.796304339+02:00"
     description: Litecoind Helm Chart
     digest: a9b7fa16df7b473d0fbe514eea68259ea800b82177452a1a8bbc214c8de9ac0b
     home: https://charts.ruan.dev/
@@ -286,7 +296,7 @@ entries:
     version: 1.5.1
   - apiVersion: v1
     appVersion: 0.21.2.2
-    created: "2024-10-22T15:07:19.632741+02:00"
+    created: "2024-11-13T13:12:30.794341281+02:00"
     description: Litecoind Helm Chart
     digest: 08ad4bae093e6184b9fcf45168155068d32016b8f007a57c2df879be4460903d
     home: https://charts.ruan.dev/
@@ -305,7 +315,7 @@ entries:
     version: 1.5.0
   - apiVersion: v1
     appVersion: 0.21.2.2
-    created: "2024-10-22T15:07:19.632406+02:00"
+    created: "2024-11-13T13:12:30.792773238+02:00"
     description: Litecoind Helm Chart
     digest: bb8cb5c8f44a9d7857d8ae76d66bd3fe8bd2b2cc0666f1a833d1a662e5c1f212
     home: https://charts.ruan.dev/
@@ -324,7 +334,7 @@ entries:
     version: 1.4.0
   - apiVersion: v1
     appVersion: 0.21.2.2
-    created: "2024-10-22T15:07:19.632078+02:00"
+    created: "2024-11-13T13:12:30.790887269+02:00"
     description: Litecoind Helm Chart
     digest: 45592c701305093b24b4bcf971f95976f60afe93ccfae6cddbfa4a77f5e98dd1
     home: https://charts.ruan.dev/
@@ -344,7 +354,7 @@ entries:
   microservice:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-22T15:07:19.673052+02:00"
+    created: "2024-11-13T13:12:30.959938794+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -370,7 +380,7 @@ entries:
     version: 3.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-22T15:07:19.662849+02:00"
+    created: "2024-11-13T13:12:30.914828814+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -396,7 +406,7 @@ entries:
     version: 3.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-22T15:07:19.652179+02:00"
+    created: "2024-11-13T13:12:30.870146001+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -422,7 +432,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-22T15:07:19.640345+02:00"
+    created: "2024-11-13T13:12:30.824074014+02:00"
     dependencies:
     - alias: redis
       condition: redis.enabled
@@ -444,7 +454,7 @@ entries:
   wiremock:
   - apiVersion: v2
     appVersion: 2.35.0
-    created: "2024-10-22T15:07:19.673488+02:00"
+    created: "2024-11-13T13:12:30.961989875+02:00"
     description: Wiremock for Kubernetes
     digest: fe1582263b8ba1c2f1805e1ee599496240a49806250052798eaf38cdae1ba271
     name: wiremock
@@ -452,4 +462,4 @@ entries:
     urls:
     - wiremock-1.0.0.tgz
     version: 1.0.0
-generated: "2024-10-22T15:07:19.621076+02:00"
+generated: "2024-11-13T13:12:30.753427176+02:00"
