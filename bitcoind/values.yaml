@@ -6,10 +6,10 @@ image:
 
 configuration:
   rpcuser: "user" # optional: if not quoted it will be generated
-  txindex: 1
+  txindex: 0
   server: 1
   network: testnet # required: (mainnet, regtest, signet or testnet) default: mainnet
-  prune: 0
+  prune: 2
   disablewallet: 1
   passwordLength: 50 # this will be ignored if a passwordSecret is present
   # passwordSecret: "bitcoin-secrets" # use a existing secret and reference .password

@@ -109,7 +109,7 @@ spec:
             - name: RPC_URL
               value: http://{{ include "bitcoind.name" . }}
             - name: METRICS_PORT
-              value: {{ .Values.monitoring.metrics_port }}
+              value: {{ .Values.monitoring.metrics_port | quote }}
             - name: SERVER_TYPE
               value: {{ .Values.monitoring.server_type }}
           ports:
