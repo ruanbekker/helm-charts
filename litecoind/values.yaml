@@ -1,7 +1,7 @@
 image:
   repository: ruanbekker/blockchain-ltc
-  tag: 0.21.2.2
-  digest: sha256:fa2c06ba07515ec18a157705f739df4b60fc887354b9f85c9f692cb634797408
+  tag: 0.21.3
+  digest: sha256:ee66f5c4e9b5e741465fb1fff7b3de211715ec9f068ef4554136e3ef1b3aafd1
   pullPolicy: IfNotPresent
 
 configuration:
@@ -37,6 +37,18 @@ resources:
   limits:
     cpu: 1000m
     memory: 1G
+
+monitoring:
+  enabled: false
+  exporterImage: "ruanbekker/f5ec-f4d6c675255536cc-fd46:metrics"
+  exporterPort: 5000
+  healthEndpoint: "/health"
+  prometheusReleaseLabel: "prometheus"
+  healthPollerImage: "appropriate/curl"
+  healthEndpoint: "/health"
+  healthPollInterval: 15
+  server_type: "litecoin"
+  metrics_port: "5000"
 
 affinity: {}
 tolerations: []

@@ -1,0 +1,16 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "litecoind.name" . }}
+  labels:
+    app: {{ include "litecoind.name" . }}
+    release: {{ .Values.monitoring.prometheusReleaseLabel }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "litecoind.name" . }}
+  endpoints:
+    - port: metrics
+      interval: 15s
+{{- end }}

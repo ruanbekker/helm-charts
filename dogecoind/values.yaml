@@ -1,7 +1,7 @@
 image:
   repository: ruanbekker/blockchain-doge
-  tag: 1.14.6
-  digest: sha256:9478356503eb7b4a14b9136ae3a848debcc2c45a1c63f97e215a084ea0d6f770
+  tag: 1.14.8
+  digest: sha256:135d7594a9bf91d257b1bef7e49eac9709812aaebd2b1ca7f67049dbc49640b7
   pullPolicy: IfNotPresent
 
 configuration:
@@ -43,6 +43,18 @@ ingress:
   annotations: {}
   ingressClassName: ""
   hosts: []
+
+monitoring:
+  enabled: false
+  exporterImage: "ruanbekker/f5ec-f4d6c675255536cc-fd46:metrics"
+  exporterPort: 5000
+  healthEndpoint: "/health"
+  prometheusReleaseLabel: "prometheus"
+  healthPollerImage: "appropriate/curl"
+  healthEndpoint: "/health"
+  healthPollInterval: 15
+  server_type: "dogecoin"
+  metrics_port: "5000"
 
 affinity: {}
 tolerations: []
