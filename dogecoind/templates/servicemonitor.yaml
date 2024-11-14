@@ -1,0 +1,16 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "dogecoind.name" . }}
+  labels:
+    app: {{ include "dogecoind.name" . }}
+    release: {{ .Values.monitoring.prometheusReleaseLabel }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "dogecoind.name" . }}
+  endpoints:
+    - port: metrics
+      interval: 15s
+{{- end }}

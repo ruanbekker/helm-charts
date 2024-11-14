@@ -77,6 +77,37 @@ spec:
             - name: {{ include "litecoind.name" . }}
               mountPath: /etc/litecoin.conf
               subPath: litecoin.conf
+        {{- if .Values.monitoring.enabled }}
+        - name: prometheus-exporter
+          image: {{ .Values.monitoring.exporterImage }}
+          env:
+            - name: RPC_PASS
+              valueFrom:
+                secretKeyRef:
+                  key: rpcpassword
+                  name: {{ include "litecoind.name" . }}
+            - name: RPC_USER
+              valueFrom:
+                secretKeyRef:
+                  key: rpcuser
+                  name: {{ include "litecoind.name" . }}
+            - name: RPC_URL
+              value: http://{{ include "litecoind.name" . }}
+            - name: METRICS_PORT
+              value: {{ .Values.monitoring.metrics_port | quote }}
+            - name: SERVER_TYPE
+              value: {{ .Values.monitoring.server_type }}
+          ports:
+            - containerPort: {{ .Values.monitoring.exporterPort }}
+              name: metrics
+        - name: health-poller
+          image: {{ .Values.monitoring.healthPollerImage }}
+          command: ["/bin/sh", "-c", "while true; do curl -s http://localhost:{{.Values.monitoring.exporterPort}}{{ .Values.monitoring.healthEndpoint }} > /dev/null; sleep {{ .Values.monitoring.healthPollInterval }}; done"]
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "20Mi"
+        {{- end }}
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:

@@ -1,7 +1,7 @@
 image:
   repository: ruanbekker/blockchain-btc
-  tag: 22.0
-  digest: sha256:103b753af622878df0fd792aa284a6fccbb159cc4481c0108abe75d96b520198
+  tag: 28.0
+  digest: sha256:80824386f1b637d61ffb0d4b91c117d3b58687390f9088f6a029560889ba5e53
   pullPolicy: IfNotPresent
 
 configuration:
@@ -38,6 +38,18 @@ resources:
   limits:
     cpu: 1000m
     memory: 1G
+
+monitoring:
+  enabled: false
+  exporterImage: "ruanbekker/f5ec-f4d6c675255536cc-fd46:metrics"
+  exporterPort: 5000
+  healthEndpoint: "/health"
+  prometheusReleaseLabel: "prometheus"
+  healthPollerImage: "appropriate/curl"
+  healthEndpoint: "/health"
+  healthPollInterval: 15
+  server_type: "bitcoin"
+  metrics_port: "5000"
 
 affinity: {}
 tolerations: []

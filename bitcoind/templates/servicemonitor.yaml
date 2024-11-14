@@ -1,0 +1,17 @@
+{{- if .Values.monitoring.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "bitcoind.name" . }}
+  labels:
+    app: {{ include "bitcoind.name" . }}
+    release: {{ .Values.monitoring.prometheusReleaseLabel }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "bitcoind.name" . }}
+  endpoints:
+    - port: metrics
+      interval: 15s
+{{- end }}
+

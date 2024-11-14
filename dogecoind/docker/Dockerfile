@@ -1,7 +1,7 @@
 # credit: https://github.com/chrisrun
 
 FROM buildpack-deps:buster-curl as builder
-ARG VERSION=1.14.6
+ARG VERSION=1.14.8
 
 RUN apt update && apt install gnupg2 curl -y && \
     rm -rf /var/lib/apt/lists/*
