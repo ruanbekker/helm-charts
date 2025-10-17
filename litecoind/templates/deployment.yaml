@@ -7,6 +7,9 @@ metadata:
     chart: {{ template "litecoind.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    {{- with .Values.extraLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   strategy:
     type: Recreate
@@ -17,6 +20,9 @@ spec:
     metadata:
       labels:
         app: {{ include "litecoind.name" . }}
+        {{- with .Values.extraLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- if .Values.podAnnotations }}
       annotations:
         {{- toYaml .Values.podAnnotations | nindent 8 }}

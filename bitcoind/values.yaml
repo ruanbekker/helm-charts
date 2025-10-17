@@ -54,4 +54,5 @@ monitoring:
 affinity: {}
 tolerations: []
 podAnnotations: []
+extraLabels: {}
 
